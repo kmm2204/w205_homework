@@ -1,0 +1,4 @@
+ What hospitals are models of high-quality care? That is, which hospitals have the most consistently high scores for a variety of procedures.
+ What states are models of high-quality care?
+ Which procedures have the greatest variability between hospitals?
+ Are average scores for hospital quality or procedural variability correlated with patient survey responses?
