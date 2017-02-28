@@ -1,0 +1,81 @@
+1. What hospitals are models of high-quality care?
+
+How did I operationalized high-quality care?
+I used total performance score from Hospital Value- Based Purchasing (HVBP)  Hospitcal Consumer Assessment of HealthCare Providers and Systems(HCAHPS).
+HCAHPS is a patient satisfaction survey required by CMS.
+The HVBP Program rewards acute care hospitals with incentive payments for the quality of care they give to people with Medicare.
+The Total Performance Score (TPS) is derived from clinical care domain, patient and caregiver centered experience, safety, and efficiency and cost reduction.
+I thought this score was the best overall score for the quality of hospitals, since it aggregates the important features of quality into one metric.
+Another good thing about the TPS is that the score is out of 100 and higher is always better, so it is something that can be consistently used across hospitals.
+
+Since hospital name was not unique (i.e. some hospital names have more than one provider ID), I've used provider ID as my unique identifier for this exercise.
+
+Table of hospitals of high-quality care.
+a.provider_id	a.total_performance_score	b.hospital_name	b.state
+390322	92.85714	Rothman Orthopaedic Specialty Hospital, LLC	PA
+260227	92.8	BLACK RIVER COMMUNITY MEDICAL CENTER	MO
+450834	90.47619	PHYSICIANS CENTRE,THE	TX
+150177	90.2	UNITY MEDICAL AND SURGICAL HOSPITAL	IN
+420102	89.14286	GHS PATEWOOD MEMORIAL HOSPITAL	SC
+390327	88.190475	WELLSPAN SURGERY AND REHABILITATION HOSPITAL	PA
+500148	87.190475	CONFLUENCE HEALTH- WENATCHEE VALLEY HOSP & CLINICS	WA
+030120	86.8	GILBERT HOSPITAL	AZ
+430090	86.42857	SIOUX FALLS SPECIALTY HOSPITAL LLP	SD
+520194	85.71429	ORTHOPAEDIC HOSPITAL OF WISCONSIN	WI
+
+
+2. What states are models of high-quality care?
+
+PA, MO, TX, IN, SC, PA, WA, AZ, SD, WI were the top states for the total performance score.
+
+Table of best total performance scores by state:
+
+a.total_performance_score	b.state
+92.85714	PA
+92.8	MO
+90.47619	TX
+90.2	IN
+89.14286	SC
+88.190475	PA
+87.190475	WA
+86.8	AZ
+86.42857	SD
+85.71429	WI
+
+
+3. What procedures have the greatest variability between hospitals?
+
+I decided to use range of the score as variability as a proxy for variability.
+I assume that readmissions to the hospital is bad and implies that something went wrong from the procedure.
+I use measure from the data set as procedures, since even though it seems like a wide variety of activities, it seems like the most relevant data for procedures.
+
+One problem I ran into with score is that some procedures are such that a higher score is better and some are such that a lower score is better.
+Using range should account for this issue.
+
+Table of highest variability in procedures
+
+a.measure_id	a.measure_name	_c2	_c3	score_range
+READM_30_HF	Heart failure (HF) 30-Day Readmission Rate	31.7	15.8	15.900001
+MORT_30_STK	Death rate for stroke patients	22.3	8.7	13.599999
+MORT_30_PN	Pneumonia (PN) 30-Day Mortality Rate	20.3	6.9	13.4
+MORT_30_HF	Heart failure (HF) 30-Day Mortality Rate	18.5	7.2	11.3
+READM_30_COPD	Rate of unplanned readmission for chronic obstructive pulmonary disease (COPD) patients	26.5	15.5	11.0
+MORT_30_AMI	Acute Myocardial Infarction (AMI) 30-Day Mortality Rate	20.6	9.9	10.700001
+READM_30_CABG	Rate of unplanned readmission for CABG	21.0	11.4	9.6
+MORT_30_COPD	Death rate for chronic obstructive pulmonary disease (COPD) patients	13.8	4.8	9.0
+READM_30_STK	Rate of unplanned readmission for stroke patients	17.5	8.7	8.8
+READM_30_PN	Pneumonia (PN) 30-Day Readmission Rate	21.8	13.2	8.599999
+
+
+4. Are average scores for hospital quality or procedural variability correlated with patient survey responses?
+
+Implemented from the formula for the sample correlation coefficient.
+
+R1=  0.5690140550511597
+
+R1 is the correlation between hospital quality, as defined by the total performance score, with patient survey responses as captured by HCAHPS_Base_Score.
+I used the HCAHPS base score because it aggregates the 8 HCAHPS dimensions.
+I decided to not use the HCAHPS performance score, since that used to incentivize performance amongst the lowest performing HCAHPS, but is not as a good as a overall measure.
+R1 shows the hospital quality and patient survey response are moderately positively correlated. The positive correlation makes sense and also being moderately correlated as there are many factors that are captured in these metrics.
+
+I had trouble figuring out how to find the correlation between procedural variability and survey response.
