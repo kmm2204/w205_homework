@@ -17,4 +17,6 @@ Cluster (Canada, Candaa, Cnaada)
 Cluster(California, Caliofrnia, Califronia)
 
 Submission 6:
-It took a really long time probably because calculating the levenshtein distance for a long string takes a very long time to calculate.  Perhaps another measure of distance can be used that is quicker like some of the methods we learned on fuzzy wuzzy rather than calculating the exact levenshtein distance 
+It took a really long time probably because calculating the levenshtein distance for a long string takes a very long time to calculate.  Perhaps another measure of distance can be used that is quicker like some of the methods we learned on fuzzy wuzzy rather than calculating the exact levenshtein distance.
+
+Additionally, there are all of these "121km S/N of" strings that can be sliced off to make the clustering faster. 
