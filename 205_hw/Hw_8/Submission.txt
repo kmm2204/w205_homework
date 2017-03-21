@@ -1,0 +1,20 @@
+Submission 1:
+8858 rows are missing a state. I included all “States” that weren’t official 50 state abbreviations including (AA, AE, AP, DC, FM, GU, MH, MP, PR, PW, VI, and (blank).).  These are 12 total. 
+
+Submission 2:
+There are 4362 rows with blank zip codes
+
+Submission 3:
+There are 345175 valid Zip codes.
+39323 invalid Zip codes.
+
+
+Submission 4:
+With a radius of 3, we are finding items that should not be matched like “Tajikistan and Pakistan” and “Indonesia and Micronesia”
+
+Submission 5:
+Cluster (Canada, Candaa, Cnaada)
+Cluster(California, Caliofrnia, Califronia)
+
+Submission 6:
+It took a really long time probably because calculating the levenshtein distance for a long string takes a very long time to calculate.  Perhaps another measure of distance can be used that is quicker like some of the methods we learned on fuzzy wuzzy rather than calculating the exact levenshtein distance 
