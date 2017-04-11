@@ -1,0 +1,21 @@
+Architecture
+
+
+
+The overall project architecture was created using Streampase and then modifying it.
+
+	
+
+
+
+In Exercise_2_new there is a directory called extweetwordcount
+* Extweetwordcount
+o Topologies
+* Tweetwordcount.clj #defines the architecture
+o Src
+* Spouts
+* Tweets.py  # gets the tweets from twitter
+* Bolts
+* Parse.py # parses the tweets
+* Wordcount.py #counts the words and writes them to the postgres Tcount database in the Tweetwordcount table
+Once this has been run, you can query the results using the finalresults.py and histogram.py files
