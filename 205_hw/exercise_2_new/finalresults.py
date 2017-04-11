@@ -11,7 +11,7 @@ if len(sys.argv) == 1:
         print s
 
 elif len(sys.argv) == 2:
-        cur.execute("SELECT count for Tweetwordcount WHERE word=%s;" , [sys.argv[1]])
+        cur.execute("SELECT count from Tweetwordcount WHERE word=%s;" , [sys.argv[1]])
         conn.commit()
         number=cur.fetchone()
         if number==None:
