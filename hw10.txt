@@ -1,0 +1,39 @@
+1.Submission 1
+
+from pyspark import SparkContext
+from pyspark.streaming import StreamingContext
+ssc = StreamingContext(sc, 1)
+lines= ssc.textFileStream("file:///tmp/datastreams")
+wclines = lines.filter(lambda word: True if len(word) > 5  else False)
+wclines.pprint()
+ssc.start()
+
+
+2. Submission 2
+from pyspark import SparkContext
+from pyspark.streaming import StreamingContext
+import json
+
+ssc = StreamingContext(sc, 10)
+lines = ssc.textFileStream("file:///tmp/datastreams")
+
+def venues(i):
+    a = open('myfile', 'a')
+    print >>a, i
+    a.close()
+    return i
+
+slines = lines.flatMap(lambda x: [ j['venue'] for j in json.loads('['+x+']') if 'venue' in j])
+vlines = slines.map(lambda x: venues(x))
+
+slines.pprint()
+vlines.pprint()
+
+
+Submission 3
+
+1) You could add extra nodes.
+2) Taking down the stream processor without a plan might create gaps of data. If there are periods when the data would be coming in slower, you could update the code then and backfill the data as to not have gaps in your data.
+
+Submission 4
+A 10 sec batch with a 30 sec sliding window means that data is collected for 10 secs each and then every 30 secs, a report is produced with the prior three 10 sec batches.  A 30 sec batch length would only contain one batch instead of 3. 
