@@ -57,7 +57,22 @@ dvdrental=# \\d\
 (41 rows)\
 \
 Question 2: What is the schema for the customer table?\
-It is public\
+
+Different attributes of dvd rentral customers.
+
+  Table "public.customer"
+   Column    |            Type             |                           Modifiers
+-------------+-----------------------------+----------------------------------------------------------------
+ customer_id | integer                     | not null default nextval('customer_customer_id_seq'::regclass)
+ store_id    | smallint                    | not null
+ first_name  | character varying(45)       | not null
+ last_name   | character varying(45)       | not null
+ email       | character varying(50)       |
+ address_id  | smallint                    | not null
+ activebool  | boolean                     | not null default true
+ create_date | date                        | not null default ('now'::text)::date
+ last_update | timestamp without time zone | default now()
+ active      | integer                     |
 \
 Question 3:  All of the output give an estimated start-up cost, estimated total cost, estimated number of rows output by this plan node, and estimated average width of rows output by this plan node. \
 \
