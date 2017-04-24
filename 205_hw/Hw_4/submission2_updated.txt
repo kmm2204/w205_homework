@@ -1,0 +1,9 @@
+results = sqlContext.sql('SELECT count(*) FROM Web_Session_Log WHERE REFERERURL = "http:/www.ebay.com"');
+>>> results.show()
+
+>>> results.show()
++----+
+| _c0|
++----+
+|3943|
++----+
